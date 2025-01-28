@@ -43,4 +43,17 @@ public class StudentController {
         String response = studentService.deleteStudentById(id);
         return response;
     }
+
+    @PutMapping("/updatePut/{id}")
+    public String updateStudentUsingPut(@PathVariable int id, @RequestBody Student newStudentRequest){
+        String response = studentService.updateStudentByPut(id,newStudentRequest);
+        return response;
+    }
+
+    //@RequestParam - it takes the input as request query
+    @PatchMapping("/updatePatch/{id}")
+    public String updateStudentUsingPatch(@PathVariable int id, @RequestParam String mobile){
+        String response = studentService.updateStudentByPatch(id,mobile);
+        return response;
+    }
 }
